@@ -8,6 +8,21 @@ class Router {
         $this->routes[$url] = $handler;
     }
 
+    public function serveAsset($assetUrl) {
+        $assetPath = '../public/' . $assetUrl;
+
+        if (file_exists($assetPath)) {
+            $mime = mime_content_type($assetPath);
+            header('Content-Type: ' . $mime);
+            readfile($assetPath);
+            exit;
+        } else {
+            http_response_code(404);
+            include __DIR__ . '/views/404.php';
+            exit;
+        }
+    }
+
     public function handleRequest($requestUrl) {
         if (array_key_exists($requestUrl, $this->routes)) {
             $handler = $this->routes[$requestUrl];
@@ -20,6 +35,7 @@ class Router {
                 // Por ejemplo:
                 // header('Location: /login.php');
                 // exit();
+                echo "protegido...";
             } else {
                 $controllerFile = '../app/controllers/' . $controllerName . '.php';
                 if (file_exists($controllerFile)) {
