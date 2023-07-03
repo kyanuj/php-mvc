@@ -35,7 +35,7 @@ class Router {
                 // Por ejemplo:
                 // header('Location: /login.php');
                 // exit();
-                echo "protegido...";
+                echo "Acceso denegado...";
             } else {
                 $controllerFile = '../app/controllers/' . $controllerName . '.php';
                 if (file_exists($controllerFile)) {
