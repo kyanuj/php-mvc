@@ -31,11 +31,8 @@ class Router {
             $isProtected = $this->isRouteProtected($requestUrl);
 
             if ($isProtected) {
-                // Aquí puedes redireccionar al usuario a una página de inicio de sesión o mostrar un mensaje de acceso denegado.
-                // Por ejemplo:
-                // header('Location: /login.php');
-                // exit();
-                echo "Acceso denegado...";
+                header("Location: /login");
+                exit;
             } else {
                 $controllerFile = '../app/controllers/' . $controllerName . '.php';
                 if (file_exists($controllerFile)) {

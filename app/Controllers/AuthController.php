@@ -1,5 +1,5 @@
 <?php
-require_once '../app/models/UserModel.php';
+require_once '../app/Models/UserModel.php';
 
 class AuthController
 {
@@ -24,7 +24,7 @@ class AuthController
                 $_SESSION['user_id'] = $user['id'];
 
                 // Redirigir al usuario a la página de inicio después del inicio de sesión exitoso
-                header('Location: index.php');
+                header('Location: /dashboard');
                 exit();
             } else {
                 // Credenciales inválidas, mostrar un mensaje de error o redirigir a la página de inicio de sesión con un mensaje

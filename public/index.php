@@ -1,4 +1,5 @@
 <?php
+// index.php
 
 require_once '../Core/Router.php';
 

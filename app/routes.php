@@ -10,4 +10,5 @@ $router->addRoute('/assets/.*', function ($url) use ($router) {
 $router->addRoute('/', 'HomeController@index');
 $router->addRoute('/about', 'AboutController@index');
 $router->addRoute('/contact', 'ContactController@index');
+$router->addRoute('/login', 'AuthController@login');
 $router->addRoute('/dashboard', 'DashboardController@index'); // Ruta protegida
